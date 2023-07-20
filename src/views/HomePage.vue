@@ -9,9 +9,8 @@
             </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
+            <p class="font-bold text-red-400" >NNNN</p>
             <ion-button id="open-modal" expand="block" @click="openModal">Open Sheet Modal</ion-button>
-
-           
         </ion-content>
     </ion-page>    
 </template>
