@@ -1,5 +1,8 @@
+<!-- naastudovat si komponenty vue -->
+
+
 <template>
-    <div>
+    <ion-page>
         <ion-header>
             <ion-toolbar>
                 <ion-title>App</ion-title>
@@ -10,38 +13,31 @@
 
            
         </ion-content>
-    </div>    
+    </ion-page>    
 </template>
 
 <script lang="ts">
-import { IonButton, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonLabel } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { IonButton, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonLabel, modalController, IonPage } from '@ionic/vue';
 import ModalContent from './ModalContent.vue';
 
-export default defineComponent({
+export default {
     components: {
-        ModalContent,
-        IonButton,
-        IonModal,
-        IonHeader,
-        IonContent,
-        IonToolbar,
-        IonTitle,
-        IonLabel,
-    },
+    IonButton,
+    IonModal,
+    IonHeader,
+    IonContent,
+    IonToolbar,
+    IonTitle,
+    IonLabel,
+    IonPage
+},
     methods: {
-        openModal() {
-            const modal = this.$ionic.modalController.create({
+        async openModal() {
+            const modal = await modalController.create({
                 component: ModalContent,
-                swipeToClose: true,
-                backdropDismiss: true,
-                componentProps: {
-                    // Additional props to pass to the ModalContent component
-                },
             });
-
             modal.present();
         },
     },
-});
+};
 </script>
